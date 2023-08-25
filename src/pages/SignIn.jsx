@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from '@/components/Button';
+import Input from '@/components/Input';
 import pb from '@/api/pocketbase';
 
 function SignIn() {
@@ -26,31 +27,9 @@ function SignIn() {
   return (
     <section className="absolute left-1/2 top-1/3 flex -translate-x-1/2 -translate-y-1/2 transform flex-col">
       <h2 className="pb-10 text-center text-xl font-black">로그인</h2>
-      <form onSubmit={handleSignIn} className="flex flex-col items-center">
-        <div className="flex flex-col">
-          <label htmlFor="id" className="">
-            아이디
-          </label>
-          <input
-            ref={usernameRef}
-            type="text"
-            name="id"
-            id="id"
-            placeholder="아이디 입력"
-            className="my-1 h-12 w-80 rounded-md border border-borderColor bg-secondary p-4"
-          />
-        </div>
-        <div className="flex flex-col py-4">
-          <label htmlFor="password">비밀번호</label>
-          <input
-            ref={passwordRef}
-            type="password"
-            name="password"
-            id="password"
-            placeholder="비밀번호 입력"
-            className="my-1 h-12 w-80 rounded-md border border-borderColor bg-secondary p-4"
-          />
-        </div>
+      <form onSubmit={handleSignIn} className="flex flex-col items-center gap-5">
+        <Input label="아이디" type="text" id="id" placeholder="아이디 입력" inputRef={usernameRef} />
+        <Input label="비밀번호" type="password" id="password" placeholder="비밀번호 입력" inputRef={passwordRef} />
         <div className="justify-centerr flex gap-5 pt-5">
           <Button type="submit">로그인</Button>
           <Link to="/">

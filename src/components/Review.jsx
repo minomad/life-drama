@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Button  from '@/components/Button';
+import Button from '@/components/Button';
 
 function Review({ id, reviewData }) {
   return (
@@ -13,7 +13,7 @@ function Review({ id, reviewData }) {
       {reviewData.map((review) => (
         <div key={review.id} className="w-ful h-28 rounded-lg bg-secondary p-4">
           <p className="font-semibold">{review.nickName}</p>
-          <p className="line-clamp-2 text-ellipsis pt-2">{review.reviewText}</p>
+          <p className="line-clamp-2 text-ellipsis pt-2 ">{review.reviewText}</p>
         </div>
       ))}
     </article>

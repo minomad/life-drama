@@ -48,7 +48,7 @@ function Drama() {
             싫어요 <span>{dramaData.dislike}</span>
           </Button>
         </div>
-        <div className="absolute left-5 top-4">
+        <div className="absolute left-8 top-4">
           <button onClick={handleBack}>
             <img src="/back.svg" alt="뒤로가기" />
           </button>
