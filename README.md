@@ -1,8 +1,24 @@
-# React + Vite
+# 과제-03
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> 꼭 봐야할 인생 드라마를 추천하고 리뷰를 쓰는 사이트
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<!-- 계획
+
+  1순위
+  회원가입
+  드라마 추가 삭제 업데이트
+
+  2순위
+  유저페이지
+  로그아웃
+  탈퇴
+
+  3순위
+  유저페이지
+  작성한 리뷰
+  좋아요 싫어요 한 드라마
+  비밀번호 변경
+
+  ?카카오로그인
+-->
