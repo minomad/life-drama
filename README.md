@@ -2,6 +2,8 @@
 
 > 꼭 봐야할 인생 드라마를 추천하고 리뷰를 쓰는 사이트
 
+### URL - [life-drama.vercel.app](https://life-drama.vercel.app)
+
 ## 구성
 
 홈 - 드라마 - 글쓰기 - 마이페이지
@@ -15,28 +17,18 @@
 
 ## UI
 
-![1](https://github.com/minomad/life-drama/assets/131448929/1d7fdec1-f610-412b-ae31-c64dada61eb0)
+### 로그인 / 회원가입
 
-<br/>
+<img src="https://github.com/minomad/life-drama/assets/131448929/1d7fdec1-f610-412b-ae31-c64dada61eb0" width="300px" height="500px"/>
 
-![2](https://github.com/minomad/life-drama/assets/131448929/690333be-23fd-4ab4-bf0b-0801f8c317bb)
+---
 
-<br/>
+### 글쓰기
 
-![3](https://github.com/minomad/life-drama/assets/131448929/2c11ca69-3794-453e-a261-8cf54e9a892b)
+<img src="https://github.com/minomad/life-drama/assets/131448929/2c11ca69-3794-453e-a261-8cf54e9a892b" width="300px" height="500px"/>
 
-<!-- 계획
+---
 
-  2순위
-  유저페이지
-  로그아웃
-  탈퇴
+### 리뷰 작성
 
-  3순위
-  유저페이지
-  작성한 리뷰
-  좋아요 싫어요 한 드라마
-  비밀번호 변경
-
-  ?카카오로그인
--->
+<img src="https://github.com/minomad/life-drama/assets/131448929/690333be-23fd-4ab4-bf0b-0801f8c317bb" width="300px" height="500px"/>
