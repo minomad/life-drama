@@ -1,4 +1,4 @@
-import { element, func, number, oneOfType, shape, string } from 'prop-types';
+import { number, oneOfType, string } from 'prop-types';
 
 function Input({ label, type, id, inputRef, placeholder }) {
   return (
