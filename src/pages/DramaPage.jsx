@@ -31,9 +31,14 @@ function Drama() {
     const reviews = reviewData.filter((review) => review.reviewId === id);
 
     return (
-      <section className="relative flex flex-col items-center gap-4 px-5 pt-1">
-        <h2 className="sr-only">드라마</h2>
-        <figure className="">
+      <section className="relative  flex flex-col items-center gap-4 px-5 pt-1">
+        <h2 className="sr-only">드라마 페이지</h2>
+        <div className="sticky top-0 z-10 flex w-full justify-between bg-primary pl-4">
+          <Button onClick={handleBack} hoverColor={'bg-transparent'}>
+            <img src="/back.svg" alt="뒤로가기" />
+          </Button>
+        </div>
+        <figure>
           <img src={imgURL} alt={dramaData.title} className="h-80" />
           <figcaption className="pt-4 text-center text-lg font-semibold">{dramaData.title}</figcaption>
         </figure>
@@ -43,11 +48,6 @@ function Drama() {
         <div className="flex gap-3">
           <Button onClick={handleLikeClick}>좋아요</Button>
           <Button hoverColor="hover:bg-rose-500">싫어요</Button>
-        </div>
-        <div className="absolute left-8 top-4">
-          <button onClick={handleBack}>
-            <img src="/back.svg" alt="뒤로가기" />
-          </button>
         </div>
         <Review id={id} reviewData={reviews} />
       </section>
