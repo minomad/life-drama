@@ -21,13 +21,9 @@
 
 ### 로그인 / 회원가입
 
-<img src="https://github.com/minomad/life-drama/assets/131448929/1d7fdec1-f610-412b-ae31-c64dada61eb0" width="300px" height="500px"/>
-
 ---
 
 ### 글쓰기
-
-<img src="https://github.com/minomad/life-drama/assets/131448929/2c11ca69-3794-453e-a261-8cf54e9a892b" width="300px" height="500px"/>
 
 ---
 

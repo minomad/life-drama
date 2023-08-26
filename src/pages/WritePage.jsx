@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 import { usePocketData } from '@/api/usePocketData';
 import TextArea from '@/components/TextArea';
@@ -40,6 +41,9 @@ function WritePage() {
 
   return (
     <section>
+      <Helmet>
+        <title>글쓰기</title>
+      </Helmet>
       <h2 className="py-5 text-center text-xl font-black">인생 드라마 추천하기</h2>
       <Form encType="multipart/form-data" onSubmit={handleRegisterDrama}>
         <div className="relative my-4 flex flex-col gap-2">

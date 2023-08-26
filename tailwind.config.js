@@ -8,7 +8,7 @@ export default {
         secondary: '#172036',
         borderColor: '#25304a',
         hoverColor: '#4263eb',
-        kakaoColor:'#ffe900',
+        kakaoColor:'#FEE500',
       },
       backgroundImage:{
         'hero':'url("/cover.png")',

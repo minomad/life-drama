@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from '@/components/Button';
 import Input from '@/components/Input';
@@ -27,6 +28,9 @@ function SignIn() {
 
   return (
     <section className="absolute left-1/2 top-1/3 flex -translate-x-1/2 -translate-y-1/2 transform flex-col">
+      <Helmet>
+        <title>로그인</title>
+      </Helmet>
       <h2 className="pb-10 text-center text-xl font-black">로그인</h2>
       <Form onSubmit={handleSignIn}>
         <Input label="아이디" type="text" id="id" placeholder="아이디 입력" inputRef={usernameRef} />

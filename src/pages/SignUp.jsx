@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { usePocketData } from '@/api/usePocketData';
 import Button from '@/components/Button';
 import Input from '@/components/Input';
@@ -61,6 +62,9 @@ function SignUp() {
 
   return (
     <section>
+      <Helmet>
+        <title>회원가입</title>
+      </Helmet>
       <h2 className=" py-5 text-center text-xl font-black">회원가입</h2>
       <Form onSubmit={handleRegister} addStyle={'pb-[140px]'}>
         <Input label="아이디" type="text" id="id" placeholder="아이디 입력" inputRef={idRef} />

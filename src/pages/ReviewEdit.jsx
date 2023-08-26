@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { usePocketData } from '@/api/usePocketData';
 import { useParams } from 'react-router-dom';
 import TextArea from '@/components/TextArea';
@@ -40,6 +41,9 @@ function ReviewEdit() {
   };
   return (
     <section>
+      <Helmet>
+        <title>리뷰 작성</title>
+      </Helmet>
       <Form
         addStyle={'absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 transform'}
         onSubmit={handleReviewSubmit}

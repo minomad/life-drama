@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useParams } from 'react-router-dom';
 import { usePocketData } from '@/api/usePocketData';
 import { getPbImageURL } from '@/utils/getPbImageURL';
@@ -27,11 +28,13 @@ function Drama() {
   }
 
   if (dramaData) {
-    const imgURL = getPbImageURL(dramaData);
     const reviews = reviewData.filter((review) => review.reviewId === id);
 
     return (
       <section className="relative  flex flex-col items-center gap-4 px-5 pt-1">
+        <Helmet>
+          <title>{dramaData.title}</title>
+        </Helmet>
         <h2 className="sr-only">드라마 페이지</h2>
         <div className="sticky top-0 z-10 flex w-full justify-between bg-primary pl-4">
           <Button onClick={handleBack} hoverColor={'bg-transparent'}>
@@ -39,7 +42,7 @@ function Drama() {
           </Button>
         </div>
         <figure>
-          <img src={imgURL} alt={dramaData.title} className="h-80" />
+          <img src={getPbImageURL(dramaData, 'img')} alt={dramaData.title} className="h-80" />
           <figcaption className="pt-4 text-center text-lg font-semibold">{dramaData.title}</figcaption>
         </figure>
         <div className="max-w-xl">

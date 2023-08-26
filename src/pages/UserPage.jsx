@@ -1,9 +1,13 @@
+import { Helmet } from 'react-helmet-async';
 import Button from '@/components/Button';
 
 function UserPage() {
 
   return (
     <section className="flex flex-col items-center gap-5 px-5">
+      <Helmet>
+        <title>마이페이지</title>
+      </Helmet>
       <h2 className=" py-5 text-center text-xl font-black">마이페이지</h2>
       <p>nickName님 환영합니다.</p>
       <ul className=" flex w-full max-w-lg flex-col gap-4 rounded-lg bg-secondary p-5">
