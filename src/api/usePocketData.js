@@ -8,7 +8,7 @@ export function usePocketData({ collection }) {
   async function getList() {
     try {
       setStatus('loading');
-      const responseList = await pb.collection(collection).getFullList({sort:'-created'});
+      const responseList = await pb.collection(collection).getFullList({ sort: '-created' });
       setData(responseList);
       setStatus('success');
     } catch (error) {
@@ -16,7 +16,7 @@ export function usePocketData({ collection }) {
     }
   }
 
-  async function getIdData(id) { 
+  async function getIdData(id) {
     try {
       setStatus('loading');
       const responseId = await pb.collection(collection).getOne(id);
@@ -30,7 +30,17 @@ export function usePocketData({ collection }) {
   async function createData(data) {
     try {
       const responseCreate = await pb.collection(collection).create(data);
-      setData(responseCreate)
+      setData(responseCreate);
+      setStatus('success');
+    } catch (error) {
+      setStatus('error');
+    }
+  }
+
+  async function deleteData(id) {
+    try {
+      const responseDelete = await pb.collection(collection).delete(id);
+      setData(responseDelete);
       setStatus('success');
     } catch (error) {
       setStatus('error');
@@ -43,5 +53,6 @@ export function usePocketData({ collection }) {
     getList,
     getIdData,
     createData,
+    deleteData,
   };
 }

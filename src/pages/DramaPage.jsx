@@ -41,12 +41,8 @@ function Drama() {
           <p className="line-clamp-3 text-ellipsis">{dramaData.desc}</p>
         </div>
         <div className="flex gap-3">
-          <Button onClick={handleLikeClick}>
-            좋아요 <span>{dramaData.like}</span>
-          </Button>
-          <Button hoverColor="hover:bg-rose-500">
-            싫어요 <span>{dramaData.dislike}</span>
-          </Button>
+          <Button onClick={handleLikeClick}>좋아요</Button>
+          <Button hoverColor="hover:bg-rose-500">싫어요</Button>
         </div>
         <div className="absolute left-8 top-4">
           <button onClick={handleBack}>
