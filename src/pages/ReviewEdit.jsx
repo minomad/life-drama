@@ -26,8 +26,8 @@ function ReviewEdit() {
     };
 
     try {
-      await createData(reviewData);
       if (confirm('리뷰를 등록하시겠습니까?')) {
+        await createData(reviewData);
         window.history.back();
       }
     } catch (error) {

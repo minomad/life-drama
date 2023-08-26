@@ -1,8 +1,76 @@
+import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { usePocketData } from '@/api/usePocketData';
+import TextArea from '@/components/TextArea';
+import Button from '@/components/Button';
+import Input from '@/components/Input';
+import Form from '@/components/Form';
 function WritePage() {
+  const { createData } = usePocketData({ collection: 'drama' });
+  const navigation = useNavigate();
+  const titleRef = useRef(null);
+  const descRef = useRef(null);
+  const imgRef = useRef(null);
+  const uploadImgRef = useRef(null);
+
+  const handleRegisterDrama = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append('title', titleRef.current.value);
+    formData.append('desc', descRef.current.value);
+    formData.append('img', imgRef.current.files[0]);
+
+    try {
+      if (confirm('등록하시겠습니까?')) {
+        await createData(formData);
+        navigation('/dramalist');
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const handleDisplayUploadImg = (e) => {
+    const imgFile = e.target.files[0];
+    const imgUrl = URL.createObjectURL(imgFile);
+    uploadImgRef.current.setAttribute('src', imgUrl);
+  };
+
   return (
-    <>
-    <h1 className="text-center font-black text-xl py-5">인생 드라마 추천하기</h1>
-    </>
-  )
+    <section>
+      <h2 className="py-5 text-center text-xl font-black">인생 드라마 추천하기</h2>
+      <Form encType="multipart/form-data" onSubmit={handleRegisterDrama}>
+        <div className="relative my-4 flex flex-col gap-2">
+          <label htmlFor="img" className="sr-only">
+            사진
+          </label>
+          <input
+            ref={imgRef}
+            onChange={handleDisplayUploadImg}
+            type="file"
+            name="img"
+            id="img"
+            accept="*.jpg,*.png,*.webp,*.avif"
+            className="absolute h-full w-full cursor-pointer opacity-0"
+            multiple
+          />
+          <div className="h-[140px] bg-slate-200/80 p-2">
+            <img
+              ref={uploadImgRef}
+              className="h-[124px] border border-slate-400/50"
+              src="https://placehold.co/84x124?text=PHOTO"
+              alt=""
+            />
+          </div>
+        </div>
+        <Input label="드라마 소개" type="text" id="title" placeholder="드라마 제목 입력" inputRef={titleRef} />
+        <TextArea id={'review'} placeholder={'작품에 대한 소개를 짧게 남겨주세요.'} textareaRef={descRef} />
+        <div className="flex gap-5 pt-2">
+          <Button type="submit">등록하기</Button>
+          <Button type="reset" hoverColor="hover:bg-rose-500">취소하기</Button>
+        </div>
+      </Form>
+    </section>
+  );
 }
-export default WritePage
+export default WritePage;

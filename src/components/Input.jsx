@@ -9,7 +9,7 @@ function Input({ label, type, id, inputRef, placeholder }) {
         name={id}
         id={id}
         placeholder={placeholder}
-        className="my-1 h-12 w-80 rounded-md border border-borderColor bg-secondary p-4"
+        className="my-1 h-12 w-80 text-white text-lg rounded-md border border-borderColor bg-secondary p-4"
       />
     </div>
   );
