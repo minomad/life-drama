@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import Button from '@/components/Button';
+import { arrayOf, shape, string } from 'prop-types';
 
 function Review({ id, reviewData }) {
   return (
@@ -19,4 +20,15 @@ function Review({ id, reviewData }) {
     </article>
   );
 }
+
+Review.propTypes = {
+  id: string,
+  reviewData: arrayOf(
+    shape({
+      id: string.isRequired,
+      nickName: string.isRequired,
+      reviewText: string.isRequired,
+    })
+  ).isRequired,
+};
 export default Review;

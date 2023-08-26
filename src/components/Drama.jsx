@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { getPbImageURL } from '@/utils/getPbImageURL';
 import { Link } from 'react-router-dom';
+import { array } from 'prop-types';
 
 function Drama({ data }) {
   return (
@@ -28,4 +29,8 @@ function Drama({ data }) {
     </div>
   );
 }
+
+Drama.propTypes = {
+  data: array.isRequired,
+};
 export default Drama;

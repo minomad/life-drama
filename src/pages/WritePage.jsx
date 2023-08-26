@@ -5,6 +5,7 @@ import TextArea from '@/components/TextArea';
 import Button from '@/components/Button';
 import Input from '@/components/Input';
 import Form from '@/components/Form';
+
 function WritePage() {
   const { createData } = usePocketData({ collection: 'drama' });
   const navigation = useNavigate();
@@ -30,6 +31,7 @@ function WritePage() {
       console.log(error);
     }
   };
+
   const handleDisplayUploadImg = (e) => {
     const imgFile = e.target.files[0];
     const imgUrl = URL.createObjectURL(imgFile);
@@ -64,10 +66,12 @@ function WritePage() {
           </div>
         </div>
         <Input label="드라마 소개" type="text" id="title" placeholder="드라마 제목 입력" inputRef={titleRef} />
-        <TextArea id={'review'} placeholder={'작품에 대한 소개를 짧게 남겨주세요.'} textareaRef={descRef} />
+        <TextArea id="review" placeholder="작품에 대한 소개를 짧게 남겨주세요." textareaRef={descRef} />
         <div className="flex gap-5 pt-2">
           <Button type="submit">등록하기</Button>
-          <Button type="reset" hoverColor="hover:bg-rose-500">취소하기</Button>
+          <Button type="reset" hoverColor="hover:bg-rose-500">
+            취소하기
+          </Button>
         </div>
       </Form>
     </section>

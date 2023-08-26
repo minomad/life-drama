@@ -15,7 +15,7 @@ function DramaListPage() {
   }
 
   if (status === 'error') {
-    return error;
+    return console.log('에러');
   }
 
   if (status === 'success') {

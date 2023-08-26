@@ -4,9 +4,11 @@
 
 ### URL - [life-drama.vercel.app](https://life-drama.vercel.app)
 
+<br/>
+
 ## 구성
 
-홈 - 드라마 - 글쓰기 - 마이페이지
+홈 - 드라마(리뷰-작성) - 글쓰기 - 마이페이지
 
 ## 기능
 
@@ -32,3 +34,16 @@
 ### 리뷰 작성
 
 <img src="https://github.com/minomad/life-drama/assets/131448929/690333be-23fd-4ab4-bf0b-0801f8c317bb" width="300px" height="500px"/>
+
+---
+
+## 코드
+
+```jsx
+
+```
+
+## 아쉬운 점
+
+- toast 기능이 잘 안돼서 confirm으로 처리한 부분
+- propType 검사를 다 하지 못한 부분

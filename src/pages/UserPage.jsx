@@ -1,8 +1,6 @@
 import Button from '@/components/Button';
-import { usePocketData } from '@/api/usePocketData';
 
 function UserPage() {
-  const { getIdData, deleteData } = usePocketData({ collection: 'users' });
 
   return (
     <section className="flex flex-col items-center gap-5 px-5">

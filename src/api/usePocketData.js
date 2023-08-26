@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { number, oneOfType, string } from 'prop-types';
 import pb from './pocketbase';
 
 export function usePocketData({ collection }) {
@@ -56,3 +57,7 @@ export function usePocketData({ collection }) {
     deleteData,
   };
 }
+
+usePocketData.propTypes = {
+  collection: oneOfType([string, number]).isRequired,
+};
