@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from '@/components/Button';
 import Input from '@/components/Input';
+import Form from '@/components/Form';
 import pb from '@/api/pocketbase';
 
 function SignIn() {
@@ -27,7 +28,7 @@ function SignIn() {
   return (
     <section className="absolute left-1/2 top-1/3 flex -translate-x-1/2 -translate-y-1/2 transform flex-col">
       <h2 className="pb-10 text-center text-xl font-black">로그인</h2>
-      <form onSubmit={handleSignIn} className="flex flex-col items-center gap-5">
+      <Form onSubmit={handleSignIn}>
         <Input label="아이디" type="text" id="id" placeholder="아이디 입력" inputRef={usernameRef} />
         <Input label="비밀번호" type="password" id="password" placeholder="비밀번호 입력" inputRef={passwordRef} />
         <div className="justify-centerr flex gap-5 pt-5">
@@ -36,7 +37,7 @@ function SignIn() {
             <Button hoverColor="hover:bg-rose-500">뒤로가기</Button>
           </Link>
         </div>
-      </form>
+      </Form>
     </section>
   );
 }

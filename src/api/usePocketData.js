@@ -30,7 +30,8 @@ export function usePocketData({ collection }) {
   async function createData(data) {
     try {
       const responseCreate = await pb.collection(collection).create(data);
-      setData(responseCreate);
+      setData(responseCreate)
+      setStatus('success');
     } catch (error) {
       setStatus('error');
     }
