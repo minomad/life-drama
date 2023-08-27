@@ -52,7 +52,7 @@ function ReviewEdit() {
           리뷰 내용
         </label>
         <TextArea textareaRef={reviewRef} id={'review'} placeholder={'작품에 대한 감상을 짧게 남겨주세요.'} />
-        <div className="flex gap-5 pt-5">
+        <div className="flex gap-5 pt-5 pb-10">
           <Button type="submit">리뷰 등록</Button>
           <Button hoverColor="hover:bg-rose-500" onClick={handleReviewCancel}>
             취소하기
