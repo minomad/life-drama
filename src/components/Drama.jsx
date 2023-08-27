@@ -18,7 +18,7 @@ function Drama({ data, selectedGenre }) {
           >
             <Link to={`/drama/${item.id}`}>
               <figure className="shadow-lg">
-                <img src={getPbImageURL(item, 'img')} alt={item.title} className="rounded-t-md hover:scale-105" />
+                <img src={getPbImageURL(item, 'img')} alt={item.title} className="h-[242px] rounded-t-md hover:scale-105 object-cover" />
                 <figcaption className="rounded-b-md bg-secondary py-2 text-center font-semibold">
                   {item.title}
                 </figcaption>
