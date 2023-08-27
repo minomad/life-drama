@@ -28,7 +28,7 @@ function DramaListPage() {
           <title>드라마 리스트</title>
         </Helmet>
         <h2 className="py-5 text-center text-xl font-black">인생 드라마</h2>
-        <Category setSelectedGenre={setSelectedGenre} />
+        <Category selectedGenre={selectedGenre} setSelectedGenre={setSelectedGenre} />
         <Drama data={data} selectedGenre={selectedGenre} />
       </section>
     );
