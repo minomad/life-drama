@@ -215,7 +215,7 @@ export default ReviewEdit;
 
 선택한 드라마의 ID값을 reviewId로 reviewText와 함께 포켓베이스에 전송하고
 
-DramaPage에서 드라마의 id와 일치하는 reviewId의 reviewData를 Review컴포넌트에 전달해서 리스트 렌더링했습니다.
+DramaPage에서 드라마ID와 일치하는 reviewId의 reviewData를 Review컴포넌트에 전달해서 리스트 렌더링했습니다.
 
 ## 아쉬운 점
 
