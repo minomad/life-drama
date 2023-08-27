@@ -31,12 +31,12 @@ function Drama() {
     const reviews = reviewData.filter((review) => review.reviewId === id);
 
     return (
-      <section className="relative  flex flex-col items-center gap-4 px-5 pt-1">
+      <section className="relative max-w-2xl mx-auto flex flex-col items-center gap-4 px-5 pt-1">
         <Helmet>
           <title>{dramaData.title}</title>
         </Helmet>
         <h2 className="sr-only">드라마 페이지</h2>
-        <div className="sticky top-0 z-10 flex w-full justify-between bg-primary pl-4">
+        <div className="sticky top-0 z-10 flex w-full justify-between bg-primary">
           <Button onClick={handleBack} hoverColor={'bg-transparent'}>
             <img src="/back.svg" alt="뒤로가기" />
           </Button>
