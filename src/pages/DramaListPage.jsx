@@ -29,7 +29,7 @@ function DramaListPage() {
         </Helmet>
         <h2 className="py-5 text-center text-xl font-black">인생 드라마</h2>
         <Category setSelectedGenre={setSelectedGenre} />
-        <Drama data={selectedGenre === '전체' ? data : data.filter((drama) => drama.genre === selectedGenre)} />
+        <Drama data={data} selectedGenre={selectedGenre} />
       </section>
     );
   }

@@ -1,13 +1,15 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { getPbImageURL } from '@/utils/getPbImageURL';
+import { array, string } from 'prop-types';
 import { Link } from 'react-router-dom';
-import { array } from 'prop-types';
 
-function Drama({ data }) {
+function Drama({ data, selectedGenre }) {
+  const filterData = selectedGenre === '전체' ? data : data.filter((drama) => drama.genre === selectedGenre);
+
   return (
     <div className="mb-40 grid min-h-screen grid-cols-4 grid-rows-4 gap-4 pt-4 max-sm:grid-cols-3 max-sm:grid-rows-3 max-[480px]:grid-cols-2 ">
       <AnimatePresence>
-        {data.map((item) => (
+        {filterData.map((item) => (
           <motion.div
             key={item.id}
             initial={{ opacity: 0, y: 100 }}
@@ -31,5 +33,6 @@ function Drama({ data }) {
 
 Drama.propTypes = {
   data: array.isRequired,
+  selectedGenre: string.isRequired,
 };
 export default Drama;
