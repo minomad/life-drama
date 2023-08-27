@@ -10,7 +10,7 @@ function Home() {
       <h1 className="sr-only">Home</h1>
       <div className="absolute inset-0 z-10 bg-gradient-to-t from-primary"></div>
       <div className="absolute left-1/2 top-1/2 z-50 flex -translate-x-1/2 -translate-y-1/2 transform flex-col">
-        <div className="pb-20 text-center text-2xl font-black text-white">인생 드라마 추천 사이트</div>
+        <div className="pb-16 text-center text-2xl font-black text-white">인생 드라마 추천 사이트</div>
         <div className="pb-3">
           <button
             type="button"

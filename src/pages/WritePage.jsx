@@ -68,7 +68,7 @@ function WritePage() {
         <title>글쓰기</title>
       </Helmet>
       <h2 className="py-5 text-center text-xl font-black">인생 드라마 추천하기</h2>
-      <Form encType="multipart/form-data" onSubmit={handleRegisterDrama}>
+      <Form encType="multipart/form-data" onSubmit={handleRegisterDrama} addStyle={'min-h-screen'}>
         <div className="relative my-4 flex flex-col gap-2">
           <label htmlFor="img" className="sr-only">
             사진

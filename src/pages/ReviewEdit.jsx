@@ -44,7 +44,7 @@ function ReviewEdit() {
         <title>리뷰 작성</title>
       </Helmet>
       <Form
-        addStyle={'absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 transform min-h-screen'}
+        addStyle={'absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 transform'}
         onSubmit={handleReviewSubmit}
       >
         <h2 className="py-5 text-center text-xl font-black">리뷰 작성하기</h2>
