@@ -38,10 +38,11 @@ export function usePocketData({ collection }) {
     }
   }
 
-  async function deleteData(id) {
+  async function userLogin(username, password) {
+    setStatus('loading');
     try {
-      const responseDelete = await pb.collection(collection).delete(id);
-      setData(responseDelete);
+      const responseUser = await pb.collection('users').authWithPassword(username, password);
+      setData(responseUser);
       setStatus('success');
     } catch (error) {
       setStatus('error');
@@ -54,7 +55,7 @@ export function usePocketData({ collection }) {
     getList,
     getIdData,
     createData,
-    deleteData,
+    userLogin,
   };
 }
 

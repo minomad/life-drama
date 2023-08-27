@@ -4,9 +4,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import Button from '@/components/Button';
 import Input from '@/components/Input';
 import Form from '@/components/Form';
-import pb from '@/api/pocketbase';
+import { usePocketData } from '../api/usePocketData';
 
 function SignIn() {
+  const { userLogin } = usePocketData({ collection: 'users' });
   const usernameRef = useRef(null);
   const passwordRef = useRef(null);
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ function SignIn() {
     const password = passwordRef.current.value;
 
     try {
-      await pb.collection('users').authWithPassword(username, password);
+      await userLogin(username, password);
       alert('로그인 성공');
       navigate('/');
     } catch (error) {
