@@ -3,7 +3,7 @@ import { any, number, oneOfType, string } from 'prop-types';
 function Input({ label, type, id, inputRef, placeholder }) {
   return (
     <div className="flex flex-col">
-      <label htmlFor={id}>{label}</label>
+      <label htmlFor={id} className='sr-only'>{label}</label>
       <input
         ref={inputRef}
         type={type}

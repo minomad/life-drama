@@ -5,12 +5,11 @@ import { array } from 'prop-types';
 
 function Drama({ data }) {
   return (
-    <div className="mb-40 grid min-h-screen grid-cols-4 gap-5 max-sm:grid-cols-3 max-[480px]:grid-cols-2 ">
+    <div className="mb-40 grid min-h-screen grid-cols-4 grid-rows-4 gap-4 pt-4 max-sm:grid-cols-3 max-sm:grid-rows-3 max-[480px]:grid-cols-2 ">
       <AnimatePresence>
         {data.map((item) => (
           <motion.div
             key={item.id}
-            className="overflow-hidden"
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}

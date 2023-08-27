@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import Button from '@/components/Button';
 import { arrayOf, shape, string } from 'prop-types';
+import Button from '@/components/Button';
 
 function Review({ id, reviewData }) {
   return (

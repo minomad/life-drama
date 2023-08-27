@@ -14,30 +14,22 @@
 
 - 로그인 / 회원가입
 - 글쓰기 (드라마 추천 글)
-- 작성된 드라마 리스트 렌더링
+- 드라마 리스트 렌더링
 - 선택한 드라마의 리뷰 작성
 
 ## UI
 
-### 로그인 / 회원가입
-
----
-
 ### 글쓰기
 
----
+## <img src="https://github.com/minomad/life-drama/assets/131448929/a4c560a3-1f55-454e-b212-234045316ec0" width="300px" />
 
 ### 리뷰 작성
 
-<img src="https://github.com/minomad/life-drama/assets/131448929/690333be-23fd-4ab4-bf0b-0801f8c317bb" width="300px" height="500px"/>
+<img src="https://github.com/minomad/life-drama/assets/131448929/eccb97ef-530f-4e0c-b127-78e111b637b2" width="300px" />
 
 ---
 
 ## 코드
-
-```jsx
-
-```
 
 ## 아쉬운 점
 

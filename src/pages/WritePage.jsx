@@ -10,7 +10,9 @@ import Form from '@/components/Form';
 function WritePage() {
   const { createData } = usePocketData({ collection: 'drama' });
   const navigation = useNavigate();
+
   const titleRef = useRef(null);
+  const genreRef = useRef(null);
   const descRef = useRef(null);
   const imgRef = useRef(null);
   const uploadImgRef = useRef(null);
@@ -20,8 +22,29 @@ function WritePage() {
 
     const formData = new FormData();
     formData.append('title', titleRef.current.value);
+    formData.append('genre', genreRef.current.value);
     formData.append('desc', descRef.current.value);
     formData.append('img', imgRef.current.files[0]);
+
+    if (!imgRef.current.files[0]) {
+      alert('드라마 사진을 추가해주세요.');
+      return;
+    }
+
+    if (!titleRef.current.value) {
+      alert('제목을 입력해주세요.');
+      return;
+    }
+
+    if (!genreRef.current.value) {
+      alert('장르를 입력해주세요.');
+      return;
+    }
+
+    if (!descRef.current.value) {
+      alert('소개글을 입력해주세요.');
+      return;
+    }
 
     try {
       if (confirm('등록하시겠습니까?')) {
@@ -69,8 +92,9 @@ function WritePage() {
             />
           </div>
         </div>
-        <Input label="드라마 소개" type="text" id="title" placeholder="드라마 제목 입력" inputRef={titleRef} />
-        <TextArea id="review" placeholder="작품에 대한 소개를 짧게 남겨주세요." textareaRef={descRef} />
+        <Input label="드라마 제목" type="text" id="title" placeholder="제목을 입력해주세요." inputRef={titleRef} />
+        <Input label="장르" type="text" id="genre" placeholder="장르를 입력해주세요" inputRef={genreRef} />
+        <TextArea id="review" placeholder="작품에 대한 소개를 짧게 남겨주세요." height={''} textareaRef={descRef} />
         <div className="flex gap-5 pt-2">
           <Button type="submit">등록하기</Button>
           <Button type="reset" hoverColor="hover:bg-rose-500">
