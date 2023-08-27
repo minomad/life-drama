@@ -21,7 +21,6 @@ function ReviewEdit() {
     }
 
     const reviewData = {
-      nickName: '익명',
       reviewId,
       reviewText,
     };

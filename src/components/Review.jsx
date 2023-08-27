@@ -13,7 +13,7 @@ function Review({ id, reviewData }) {
       </div>
       {reviewData.map((review) => (
         <div key={review.id} className="w-ful h-28 rounded-lg bg-secondary p-4">
-          <p className="font-semibold">{review.nickName}</p>
+          <p className="font-semibold">익명</p>
           <p className="line-clamp-2 text-ellipsis pt-2 ">{review.reviewText}</p>
         </div>
       ))}
@@ -25,10 +25,9 @@ Review.propTypes = {
   id: string,
   reviewData: arrayOf(
     shape({
-      id: string.isRequired,
-      nickName: string.isRequired,
-      reviewText: string.isRequired,
+      id: string,
+      reviewText: string,
     })
-  ).isRequired,
+  ),
 };
 export default Review;
