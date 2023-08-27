@@ -45,8 +45,8 @@ export function usePocketData({ collection }) {
   const [status, setStatus] = useState('pending');
 
   async function getList() {
+    setStatus('loading');
     try {
-      setStatus('loading');
       const responseList = await pb.collection(collection).getFullList({ sort: '-created' });
       setData(responseList);
       setStatus('success');
@@ -56,8 +56,8 @@ export function usePocketData({ collection }) {
   }
 
   async function getIdData(id) {
+    setStatus('loading');
     try {
-      setStatus('loading');
       const responseId = await pb.collection(collection).getOne(id);
       setData(responseId);
       setStatus('success');
@@ -67,6 +67,7 @@ export function usePocketData({ collection }) {
   }
 
   async function createData(data) {
+    setStatus('loading');
     try {
       const responseCreate = await pb.collection(collection).create(data);
       setData(responseCreate);
@@ -100,6 +101,7 @@ export function usePocketData({ collection }) {
 usePocketData.propTypes = {
   collection: oneOfType([string, number]).isRequired,
 };
+
 ```
 
 포켓베이스의 데이터 요청을 커스텀 훅으로 만들었습니다.
