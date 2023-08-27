@@ -84,10 +84,10 @@ function WritePage() {
             className="absolute h-full w-full cursor-pointer opacity-0"
             multiple
           />
-          <div className="h-[140px] bg-slate-200/80 p-2">
+          <div className="h-[140px] bg-secondary p-2">
             <img
               ref={uploadImgRef}
-              className="h-[124px] border border-slate-400/50"
+              className="h-[124px] border border-secondary"
               src="https://placehold.co/84x124?text=PHOTO"
               alt=""
             />
