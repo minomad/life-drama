@@ -1,4 +1,4 @@
-import { number, oneOfType, string } from 'prop-types';
+import { any, number, oneOfType, string } from 'prop-types';
 
 function Input({ label, type, id, inputRef, placeholder }) {
   return (
@@ -20,6 +20,7 @@ Input.propTypes = {
   label: string,
   type: string,
   id: string,
+  inputRef: any,
   placeholder: oneOfType([string, number]),
 };
 export default Input;

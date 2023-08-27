@@ -1,4 +1,4 @@
-import { number, oneOfType, string } from 'prop-types';
+import { any, number, oneOfType, string } from 'prop-types';
 
 function TextArea({ textareaRef, id, placeholder }) {
   return (
@@ -15,6 +15,7 @@ function TextArea({ textareaRef, id, placeholder }) {
 
 TextArea.propTypes = {
   id: string,
+  textareaRef: any,
   placeholder: oneOfType([string, number]),
 };
 export default TextArea;

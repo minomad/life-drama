@@ -14,9 +14,9 @@ function Home() {
         <div className="pb-3">
           <button
             type="button"
-            className="flex w-60 items-center justify-center gap-2 rounded-lg bg-kakaoColor p-3 font-black text-black"
+            className="flex w-60 items-center justify-center gap-2 rounded-lg bg-kakaoColor p-2 font-black text-black"
           >
-            <img src="/login.svg" alt="로그인아이콘" />
+            <img src="/login.svg" alt="카카오로그인" />
             카카오로 시작하기
           </button>
         </div>
@@ -25,7 +25,7 @@ function Home() {
           <Link to="/signin" className="border-r px-5 hover:text-hoverColor">
             로그인
           </Link>
-          <Link to="/signup" className=" hover:text-hoverColor">
+          <Link to="/signup" className="hover:text-hoverColor">
             회원가입
           </Link>
         </div>
