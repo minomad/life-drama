@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Home() {
   return (
-    <section className="bg-opacity- relative min-h-screen bg-hero bg-cover">
+    <section className="relative min-h-screen bg-hero bg-cover">
       <Helmet>
         <title>홈페이지</title>
       </Helmet>
