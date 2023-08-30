@@ -11,7 +11,7 @@ export default {
         kakaoColor:'#FEE500',
       },
       backgroundImage:{
-        'hero':'url("/cover.png")',
+        'hero':'url("/cover.webp")',
       }
     },
   },
