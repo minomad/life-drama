@@ -10,7 +10,7 @@ function DramaListPage() {
   const [selectedGenre, setSelectedGenre] = useState('전체');
   
   const { getListData } = usePocketData('drama');
-
+  
   const {
     isLoading: isDramaLoading,
     isError: isDramaError,
