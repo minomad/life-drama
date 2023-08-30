@@ -10,7 +10,6 @@ const DramaPage = lazy(() => import('./pages/DramaPage'));
 const SignUp = lazy(() => import('./pages/SignUp'));
 const SignIn = lazy(() => import('./pages/SignIn'));
 const ReviewEdit = lazy(() => import('./pages/ReviewEdit'));
-const LikePage = lazy(() => import('./pages/LikePage'));
 
 const router = createBrowserRouter([
   {
@@ -25,7 +24,6 @@ const router = createBrowserRouter([
       { path: 'write', element: <WritePage /> },
       { path: 'review/:id', element: <ReviewEdit /> },
       { path: 'user', element: <UserPage /> },
-      { path: 'user/like', element: <LikePage /> },
     ],
   },
 ]);

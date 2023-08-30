@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import Button from '@/components/Button';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 function UserPage() {
   return (
@@ -14,7 +14,7 @@ function UserPage() {
         <li>작성한 글</li>
         <li className="border-y py-4">작성한 리뷰</li>
         <li>
-          <Link to="/user/like">관심 있는 드라마</Link>
+          {/* <Link to="/user/like">관심 있는 드라마</Link> */}
         </li>
       </ul>
       <div className="flex gap-14 pt-5">
