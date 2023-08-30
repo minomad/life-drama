@@ -1,63 +1,26 @@
-import { useState } from 'react';
 import { number, oneOfType, string } from 'prop-types';
 import pb from './pocketbase';
 
-export function usePocketData({ collection }) {
-  const [data, setData] = useState([]);
-  const [status, setStatus] = useState('pending');
-
-  async function getList() {
-    setStatus('loading');
-    try {
-      const responseList = await pb.collection(collection).getFullList({ sort: '-created' });
-      setData(responseList);
-      setStatus('success');
-    } catch (error) {
-      setStatus('error');
-    }
-  }
-
-  async function getIdData(id) {
-    setStatus('loading');
-    try {
-      const responseId = await pb.collection(collection).getOne(id);
-      setData(responseId);
-      setStatus('success');
-    } catch (error) {
-      setStatus('error');
-    }
-  }
-
-  async function createData(data) {
-    setStatus('loading');
-    try {
-      const responseCreate = await pb.collection(collection).create(data);
-      setData(responseCreate);
-      setStatus('success');
-    } catch (error) {
-      setStatus('error');
-    }
-  }
-
-  async function userLogin(username, password) {
-    setStatus('loading');
-    try {
-      const responseUser = await pb.collection('users').authWithPassword(username, password);
-      setData(responseUser);
-      setStatus('success');
-    } catch (error) {
-      setStatus('error');
-    }
-  }
-
-  return {
-    data,
-    status,
-    getList,
-    getIdData,
-    createData,
-    userLogin,
+export function usePocketData(collection) {
+  const defulatOptions = {
+    sort: '-created',
   };
+
+  const getListData = (options = {}) => pb.collection(collection).getFullList({ ...defulatOptions }, options);
+  //options => filter,sort,expand,fields
+
+  const getIdData = (id, options = {}) => pb.collection(collection).getOne(id, options);
+  //options => expand,fields
+
+  const createData = (data) => pb.collection(collection).create(data);
+
+  const updateData = (id, data) => pb.collection(collection).create(id, data);
+
+  const deleteData = (id) => pb.collection(collection).delete(id);
+
+  const userLogin = ({ username, password }) => pb.collection('users').authWithPassword(username, password);
+
+  return { getListData, getIdData, createData, updateData, deleteData, userLogin };
 }
 
 usePocketData.propTypes = {

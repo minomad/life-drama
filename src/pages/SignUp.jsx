@@ -7,7 +7,7 @@ import Input from '@/components/Input';
 import Form from '@/components/Form';
 
 function SignUp() {
-  const { createData } = usePocketData({ collection: 'users' });
+  const { createData } = usePocketData('users');
 
   const idRef = useRef(null);
   const nickNameRef = useRef(null);

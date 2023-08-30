@@ -8,7 +8,7 @@ import Input from '@/components/Input';
 import Form from '@/components/Form';
 
 function WritePage() {
-  const { createData } = usePocketData({ collection: 'drama' });
+  const { createData } = usePocketData('drama');
   const navigation = useNavigate();
 
   const titleRef = useRef(null);

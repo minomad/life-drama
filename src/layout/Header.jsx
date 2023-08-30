@@ -1,4 +1,6 @@
+import { memo } from 'react';
 import Navigation from './Navigation';
+
 
 function Header() {
   return (
@@ -8,4 +10,4 @@ function Header() {
     </header>
   );
 }
-export default Header;
+export default memo(Header);

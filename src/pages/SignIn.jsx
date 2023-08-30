@@ -7,7 +7,7 @@ import Input from '@/components/Input';
 import Form from '@/components/Form';
 
 function SignIn() {
-  const { userLogin } = usePocketData({ collection: 'users' });
+  const { userLogin } = usePocketData('users');
   const usernameRef = useRef(null);
   const passwordRef = useRef(null);
   const navigate = useNavigate();

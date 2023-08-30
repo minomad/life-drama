@@ -7,7 +7,7 @@ import Button from '@/components/Button';
 import Form from '@/components/Form';
 
 function ReviewEdit() {
-  const { createData } = usePocketData({ collection: 'review' });
+  const { createData } = usePocketData('review');
   const { id: reviewId } = useParams();
   const reviewRef = useRef(null);
 

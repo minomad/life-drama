@@ -1,37 +1,40 @@
-import { useLayoutEffect, useState } from 'react';
+import { useState } from 'react';
 import { usePocketData } from '@/api/usePocketData';
 import { Helmet } from 'react-helmet-async';
+import { useQuery } from '@tanstack/react-query';
 import Spinner from '@/components/Spinner';
 import Drama from '@/components/Drama';
 import Category from '@/components/Category';
 
 function DramaListPage() {
-  const { data, status, getList } = usePocketData({ collection: 'drama' });
   const [selectedGenre, setSelectedGenre] = useState('전체');
+  
+  const { getListData } = usePocketData('drama');
 
-  useLayoutEffect(() => {
-    getList();
-  }, []);
+  const {
+    isLoading: isDramaLoading,
+    isError: isDramaError,
+    data: dramaList,
+  } = useQuery(['drama'],getListData);
 
-  if (status === 'loading') {
+  if (isDramaLoading) {
     return <Spinner />;
   }
 
-  if (status === 'error') {
-    return console.log('에러');
+  if (isDramaError) {
+    return <div>서버 에러 발생</div>; 
   }
 
-  if (status === 'success') {
-    return (
-      <section className="px-5">
-        <Helmet>
-          <title>드라마 리스트</title>
-        </Helmet>
-        <h2 className="py-5 text-center text-xl font-black">인생 드라마</h2>
-        <Category selectedGenre={selectedGenre} setSelectedGenre={setSelectedGenre} />
-        <Drama data={data} selectedGenre={selectedGenre} />
-      </section>
-    );
-  }
+  return (
+    <section className="px-5">
+      <Helmet>
+        <title>드라마 리스트</title>
+      </Helmet>
+      <h2 className="py-5 text-center text-xl font-black">인생 드라마</h2>
+      <Category selectedGenre={selectedGenre} setSelectedGenre={setSelectedGenre} />
+      <Drama data={dramaList} selectedGenre={selectedGenre} />
+    </section>
+  );
 }
+
 export default DramaListPage;
