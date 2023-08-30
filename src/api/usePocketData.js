@@ -6,7 +6,7 @@ export function usePocketData(collection) {
     sort: '-created',
   };
 
-  const getListData = (options = {}) => pb.collection(collection).getFullList({ ...defulatOptions }, options);
+  const getListData = (options = {}) => pb.collection(collection).getFullList( defulatOptions , options);
   //options => filter,sort,expand,fields
 
   const getIdData = (id, options = {}) => pb.collection(collection).getOne(id, options);

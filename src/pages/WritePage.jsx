@@ -46,9 +46,9 @@ function WritePage() {
       return;
     }
 
+    await createData(formData);
     try {
       if (confirm('등록하시겠습니까?')) {
-        await createData(formData);
         alert('등록 성공')
         navigation('/dramalist');
       }
