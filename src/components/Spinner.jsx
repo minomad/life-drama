@@ -1,6 +1,6 @@
 function Spinner() {
   return (
-    <div className="absolute left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2 transform">
+    <div className="">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="130"
