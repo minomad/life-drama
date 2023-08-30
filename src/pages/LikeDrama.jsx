@@ -1,7 +1,7 @@
 import { usePocketData } from '@/api/usePocketData';
 import { useQuery } from '@tanstack/react-query';
 
-function LikePage() {
+function LikeDrama() {
   const { getListData } = usePocketData('users');
 
   //유저 아이디랑 비교해서 일치하는 유저의 데이터를 가져오자
@@ -24,4 +24,4 @@ function LikePage() {
     </div>
   );
 }
-export default LikePage;
+export default LikeDrama;

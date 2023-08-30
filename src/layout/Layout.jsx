@@ -1,4 +1,5 @@
-import { Outlet } from 'react-router-dom';
+import AnimatedOutlet from '@/components/AnimateOutlet';
+import AnimateTransition from '@/components/AnimateTransition';
 import Header from './Header';
 
 function Layout() {
@@ -6,7 +7,9 @@ function Layout() {
     <>
       <Header />
       <main className="mx-auto max-w-3xl">
-        <Outlet />
+        <AnimateTransition>
+          <AnimatedOutlet />
+        </AnimateTransition>
       </main>
     </>
   );
