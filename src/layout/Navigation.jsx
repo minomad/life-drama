@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import { NavLink } from 'react-router-dom';
 
 function Navigation() {
@@ -45,4 +44,4 @@ function Navigation() {
   );
 }
 
-export default memo(Navigation);
+export default Navigation;
