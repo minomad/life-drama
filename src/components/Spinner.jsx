@@ -1,6 +1,6 @@
 function Spinner() {
   return (
-    <div className="">
+    <div className="flex justify-center pt-32">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="130"
