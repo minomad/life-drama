@@ -17,8 +17,13 @@ function SignIn() {
     const username = usernameRef.current.value;
     const password = passwordRef.current.value;
 
+    const loginInfo ={
+      username,
+      password,
+    }
+
     try {
-      await userLogin(username, password);
+      await userLogin(loginInfo);
       alert('로그인 성공');
       navigate('/');
     } catch (error) {

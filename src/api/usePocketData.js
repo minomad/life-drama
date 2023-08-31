@@ -6,7 +6,8 @@ export function usePocketData(collection) {
     sort: '-created',
   };
 
-  const getListData = (options = {}) => pb.collection(collection).getFullList( defulatOptions , options);
+  const getListData = (options = {}) =>
+    pb.collection(collection).getFullList(defulatOptions, options);
   //options => filter,sort,expand,fields
 
   const getIdData = (id, options = {}) => pb.collection(collection).getOne(id, options);
@@ -18,7 +19,7 @@ export function usePocketData(collection) {
 
   const deleteData = (id) => pb.collection(collection).delete(id);
 
-  const userLogin = ({ username, password }) => pb.collection('users').authWithPassword(username, password);
+  const userLogin = (loginInfo) => pb.collection('users').authWithPassword(loginInfo);
 
   return { getListData, getIdData, createData, updateData, deleteData, userLogin };
 }

@@ -8,21 +8,21 @@ import Category from '@/components/Category';
 
 function DramaListPage() {
   const [selectedGenre, setSelectedGenre] = useState('전체');
-  
+
   const { getListData } = usePocketData('drama');
-  
+
   const {
     isLoading: isDramaLoading,
     isError: isDramaError,
     data: dramaList,
-  } = useQuery(['drama'],getListData);
+  } = useQuery(['drama'], getListData);
 
   if (isDramaLoading) {
     return <Spinner />;
   }
 
   if (isDramaError) {
-    return <div>서버 에러 발생</div>; 
+    return <div>서버 에러 발생</div>;
   }
 
   return (
