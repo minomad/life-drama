@@ -29,7 +29,7 @@ function Drama() {
 
   if (isDramaError || isReviewError) return <div>알 수 없는 서버의 에러가 발생했습니다.</div>;
 
-  const reviews = reviewList.filter((review) => review.reviewId === id);
+  const reviews = reviewList.filter((review) => review.title === dramaData.title);
 
   return (
     <section className="relative mx-auto flex max-w-2xl flex-col items-center gap-4 px-5 pt-1">
@@ -53,7 +53,7 @@ function Drama() {
         <Button>좋아요</Button>
         <Button hoverColor="hover:bg-rose-500">싫어요</Button>
       </div>
-      <Review id={id} reviewData={reviews} />
+      <Review title={dramaData.title} reviewData={reviews} />
     </section>
   );
 }

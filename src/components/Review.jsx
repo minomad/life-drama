@@ -3,16 +3,17 @@ import { arrayOf, shape, string } from 'prop-types';
 import Button from '@/components/Button';
 import useStorage from '@/hook/useStorage';
 
-function Review({ id, reviewData }) {
+function Review({ title, reviewData }) {
   const { storageData } = useStorage('pocketbase_auth');
   const navigate = useNavigate();
 
   const handleReview = () => {
     if (!storageData) {
-      alert('로그인 시 가능합니다');
+      if(confirm('로그인이 필요합니다. 로그인 하시겠습니까?'))
+      navigate('/')
       return;
     }
-    navigate(`/review/${id}`);
+    navigate(`/review/${title}`);
   };
 
   return (
@@ -32,7 +33,7 @@ function Review({ id, reviewData }) {
 }
 
 Review.propTypes = {
-  id: string,
+  title: string,
   reviewData: arrayOf(
     shape({
       id: string,

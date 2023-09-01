@@ -8,7 +8,7 @@ import Form from '@/components/Form';
 
 function ReviewEdit() {
   const { createData } = usePocketData('review');
-  const { id: reviewId } = useParams();
+  const { id: title } = useParams();
   const reviewRef = useRef(null);
 
   const handleReviewSubmit = async (e) => {
@@ -21,7 +21,7 @@ function ReviewEdit() {
     }
 
     const reviewData = {
-      reviewId,
+      title,
       reviewText,
     };
 
