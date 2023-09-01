@@ -1,4 +1,4 @@
-import { any, number, oneOfType, string } from 'prop-types';
+import { func, shape, instanceOf, number, oneOfType, string } from 'prop-types';
 
 function TextArea({ textareaRef, id, placeholder, height = 'h-36' }) {
   const textareaStyle = `${height} w-80 resize-none rounded-lg bg-secondary p-2 text-lg text-white`;
@@ -17,7 +17,7 @@ function TextArea({ textareaRef, id, placeholder, height = 'h-36' }) {
 
 TextArea.propTypes = {
   id: string,
-  textareaRef: any,
+  textareaRef: oneOfType([func, shape({ current: instanceOf(Element) })]),
   height: string,
   placeholder: oneOfType([string, number]),
 };

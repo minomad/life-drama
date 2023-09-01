@@ -24,7 +24,6 @@ function Drama() {
     window.history.back();
   };
 
-  const handleLikeClick = () => {};
 
   if (isDramaLoading || isReviewLoading) return <Spinner />;
 
@@ -51,7 +50,7 @@ function Drama() {
         <p className="line-clamp-3 text-ellipsis">{dramaData.desc}</p>
       </div>
       <div className="flex gap-3">
-        <Button onClick={handleLikeClick}>좋아요</Button>
+        <Button>좋아요</Button>
         <Button hoverColor="hover:bg-rose-500">싫어요</Button>
       </div>
       <Review id={id} reviewData={reviews} />

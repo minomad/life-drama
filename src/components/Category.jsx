@@ -1,8 +1,6 @@
-import { func, string } from 'prop-types';
+import { func, string, arrayOf } from 'prop-types';
 
-function Category({ selectedGenre, setSelectedGenre }) {
-  const genre = ['전체', '판타지', '스릴러', '멜로', '코미디', '드라마'];
-
+function Category({ genre, selectedGenre, setSelectedGenre, icon  }) {
   return (
     <div className="sticky top-0 z-10 flex justify-center bg-primary py-2">
       <ul className="flex cursor-pointer flex-nowrap overflow-x-auto whitespace-nowrap">
@@ -19,6 +17,7 @@ function Category({ selectedGenre, setSelectedGenre }) {
                 window.scrollTo({ top: 0 });
               }}
             >
+              {icon && <img src={icon} alt={item} />}
               {item}
             </li>
           );
@@ -30,6 +29,7 @@ function Category({ selectedGenre, setSelectedGenre }) {
 
 Category.propTypes = {
   selectedGenre: string,
+  genre: arrayOf(string),
   setSelectedGenre: func,
 };
 export default Category;
