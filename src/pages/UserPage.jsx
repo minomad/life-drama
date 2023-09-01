@@ -1,8 +1,19 @@
 import { Helmet } from 'react-helmet-async';
+import { useNavigate, Link } from 'react-router-dom';
 import Button from '@/components/Button';
-import { Link } from 'react-router-dom';
+import useStorage from '@/hook/useStorage';
 
 function UserPage() {
+  const userStorage = useStorage('user', null);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    if (confirm('로그아웃 하시겠습니까?')) {
+      userStorage.remove();
+      navigate('/');
+    }
+  };
+
   return (
     <section className="flex flex-col items-center gap-5 px-5">
       <Helmet>
@@ -18,7 +29,7 @@ function UserPage() {
         </li>
       </ul>
       <div className="flex gap-14 pt-5">
-        <Button>로그아웃</Button>
+        <Button onClick={handleLogout}>로그아웃</Button>
         <Button hoverColor="hover:bg-rose-500">회원탈퇴</Button>
       </div>
     </section>
