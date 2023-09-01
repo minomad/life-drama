@@ -2,14 +2,24 @@ import { Helmet } from 'react-helmet-async';
 import { useNavigate, Link } from 'react-router-dom';
 import Button from '@/components/Button';
 import useStorage from '@/hook/useStorage';
+import { usePocketData } from '@/api/usePocketData';
 
 function UserPage() {
-  const userStorage = useStorage('user', null);
+  const { deleteData } = usePocketData('users');
+  const userInfo = useStorage('pocketbase_auth', null);
+  const userId = userInfo.storageData.model.id;
   const navigate = useNavigate();
 
   const handleLogout = () => {
     if (confirm('로그아웃 하시겠습니까?')) {
-      userStorage.remove();
+      userInfo.remove();
+      navigate('/');
+    }
+  };
+
+  const handleDelete = () => {
+    if (confirm('회원탈퇴 하시겠습니까?')) {
+      deleteData(userId);
       navigate('/');
     }
   };
@@ -30,7 +40,9 @@ function UserPage() {
       </ul>
       <div className="flex gap-14 pt-5">
         <Button onClick={handleLogout}>로그아웃</Button>
-        <Button hoverColor="hover:bg-rose-500">회원탈퇴</Button>
+        <Button onClick={handleDelete} hoverColor="hover:bg-rose-500">
+          회원탈퇴
+        </Button>
       </div>
     </section>
   );

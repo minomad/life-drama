@@ -5,7 +5,6 @@ import { usePocketData } from '@/api/usePocketData';
 import Button from '@/components/Button';
 import Input from '@/components/Input';
 import Form from '@/components/Form';
-import useStorage from '@/hook/useStorage';
 
 function SignIn() {
   const { userLogin } = usePocketData('users');
@@ -13,7 +12,6 @@ function SignIn() {
   const passwordRef = useRef(null);
   const navigate = useNavigate();
 
-  const userStorage = useStorage('user', null);
   const handleSignIn = async (e) => {
     e.preventDefault();
     const username = usernameRef.current.value;
@@ -27,7 +25,6 @@ function SignIn() {
     try {
 
       await userLogin(loginInfo);
-      userStorage.update(loginInfo)
       alert('로그인 성공');
       navigate('/');
     } catch (error) {
