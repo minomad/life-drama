@@ -15,7 +15,9 @@ function DramaListPage() {
     isLoading: isDramaLoading,
     isError: isDramaError,
     data: dramaList,
-  } = useQuery(['drama'], getListData);
+  } = useQuery(['drama'], () => getListData());
+
+  console.log(dramaList);
 
   const genre = ['전체', '판타지', '스릴러', '멜로', '코미디', '드라마'];
   // const addIcon = '/back.svg';
@@ -34,7 +36,7 @@ function DramaListPage() {
         <title>드라마 리스트</title>
       </Helmet>
       <h2 className="py-5 text-center text-xl font-black">인생 드라마</h2>
-      <Category genre={genre} selectedGenre={selectedGenre} setSelectedGenre={setSelectedGenre}/>
+      <Category genre={genre} selectedGenre={selectedGenre} setSelectedGenre={setSelectedGenre} />
       <Drama data={dramaList} selectedGenre={selectedGenre} />
     </section>
   );

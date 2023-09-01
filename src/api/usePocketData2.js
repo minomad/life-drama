@@ -2,12 +2,12 @@ import { number, oneOfType, string } from 'prop-types';
 import pb from './pocketbase';
 
 export function usePocketData(collection) {
-  const defulatOptions = {
+  const defaultOptions = {
     sort: '-created',
   };
-
+  
   function getListData(options = {}) {
-    return pb.collection(collection).getFullList(defulatOptions, options);
+    return pb.collection(collection).getFullList({ ...defaultOptions, ...options });
   }
   function getIdData(id, options = {}) {
     return pb.collection(collection).getOne(id, options);
@@ -31,7 +31,7 @@ export function usePocketData(collection) {
   function signOut() {
     return pb.authStore.clear();
   }
-  
+
   return { getListData, getIdData, createData, updateData, deleteData, signIn, signOut };
 }
 

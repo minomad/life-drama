@@ -2,16 +2,13 @@ import { number, oneOfType, string } from 'prop-types';
 import pb from './pocketbase';
 
 export function usePocketData(collection) {
-  const defulatOptions = {
+  const defaultOptions = {
     sort: '-created',
   };
 
-  const getListData = (options = {}) =>
-    pb.collection(collection).getFullList(defulatOptions, options);
-  //options => filter,sort,expand,fields
+  const getListData = (options = {}) => pb.collection(collection).getFullList({...defaultOptions, ...options});
 
   const getIdData = (id, options = {}) => pb.collection(collection).getOne(id, options);
-  //options => expand,fields
 
   const createData = (data) => pb.collection(collection).create(data);
 
