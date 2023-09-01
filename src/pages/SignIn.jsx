@@ -7,7 +7,7 @@ import Input from '@/components/Input';
 import Form from '@/components/Form';
 
 function SignIn() {
-  const { userLogin } = usePocketData('users');
+  const { signIn } = usePocketData('users');
   const usernameRef = useRef(null);
   const passwordRef = useRef(null);
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ function SignIn() {
 
     try {
 
-      await userLogin(loginInfo);
+      await signIn(loginInfo);
       alert('로그인 성공');
       navigate('/');
     } catch (error) {

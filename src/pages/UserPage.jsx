@@ -5,14 +5,14 @@ import useStorage from '@/hook/useStorage';
 import { usePocketData } from '@/api/usePocketData';
 
 function UserPage() {
-  const { deleteData } = usePocketData('users');
+  const { deleteData, signOut } = usePocketData('users');
   const { storageData, remove } = useStorage('pocketbase_auth');
 
   const navigate = useNavigate();
 
   const handleLogout = () => {
     if (confirm('로그아웃 하시겠습니까?')) {
-      remove();
+      signOut();
       navigate('/');
     }
   };

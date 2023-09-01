@@ -24,11 +24,15 @@ export function usePocketData(collection) {
     return pb.collection(collection).create(id);
   }
 
-  function userLogin({ username, password }) {
+  function signIn({ username, password }) {
     return pb.collection('users').authWithPassword(username, password);
   }
 
-  return { getListData, getIdData, createData, updateData, deleteData, userLogin };
+  function signOut() {
+    return pb.authStore.clear();
+  }
+  
+  return { getListData, getIdData, createData, updateData, deleteData, signIn, signOut };
 }
 
 usePocketData.propTypes = {
