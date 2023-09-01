@@ -17,10 +17,7 @@ function DramaListPage() {
     data: dramaList,
   } = useQuery(['drama'], () => getListData());
 
-  console.log(dramaList);
-
   const genre = ['전체', '판타지', '스릴러', '멜로', '코미디', '드라마'];
-  // const addIcon = '/back.svg';
 
   if (isDramaLoading) {
     return <Spinner />;
