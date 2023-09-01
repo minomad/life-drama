@@ -1,18 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import { arrayOf, shape, string } from 'prop-types';
 import Button from '@/components/Button';
-import useStorage from '@/hook/useStorage';
 
 function Review({ title, reviewData }) {
-  const { storageData } = useStorage('pocketbase_auth');
   const navigate = useNavigate();
 
   const handleReview = () => {
-    if (!storageData) {
-      if(confirm('로그인이 필요합니다. 로그인 하시겠습니까?'))
-      navigate('/')
-      return;
-    }
     navigate(`/review/${title}`);
   };
 

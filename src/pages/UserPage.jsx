@@ -31,7 +31,7 @@ function UserPage() {
         <title>마이페이지</title>
       </Helmet>
 
-      {!storageData && <div className="pt-40 text-xl font-semibold">로그인을 해주세요</div>}
+      {!storageData && <div className="pt-40 text-xl font-semibold">로그인이 필요합니다</div>}
 
       {storageData && (
         <>
