@@ -31,7 +31,7 @@ function UserPage() {
         <title>마이페이지</title>
       </Helmet>
 
-      {!storageData && <div className='pt-40'>로그인을 해주세요</div>}
+      {!storageData && <div className="pt-40 text-xl font-semibold">로그인을 해주세요</div>}
 
       {storageData && (
         <>
@@ -51,7 +51,6 @@ function UserPage() {
               회원탈퇴
             </Button>
           </div>
-
         </>
       )}
     </section>

@@ -1,22 +1,5 @@
 import { useCallback, useMemo, useState } from 'react';
 
-const {
-  localStorage: storage,
-  JSON: { stringify, parse },
-} = globalThis;
-
-const setData = (key, nextData) => {
-  storage.setItem(key, stringify(nextData));
-};
-
-const getData = (key) => {
-  return parse(storage.getItem(key));
-};
-
-const deleteData = (key) => {
-  storage.removeItem(key);
-};
-
 function useStorage(key, defaultValue) {
   const [storageData, setStorageData] = useState(() => {
     try {
@@ -48,5 +31,20 @@ function useStorage(key, defaultValue) {
     [remove, storageData, update]
   );
 }
+const {
+  localStorage: storage,
+  JSON: { stringify, parse },
+} = globalThis;
 
+const setData = (key, nextData) => {
+  storage.setItem(key, stringify(nextData));
+};
+
+const getData = (key) => {
+  return parse(storage.getItem(key));
+};
+
+const deleteData = (key) => {
+  storage.removeItem(key);
+};
 export default useStorage;
