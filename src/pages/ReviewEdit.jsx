@@ -11,7 +11,8 @@ function ReviewEdit() {
   // const { updateData } = usePocketData('users');
   const { createData } = usePocketData('review');
   const { storageData } = useStorage('pocketbase_auth');
-  const nickName = storageData?.model?.username || '익명';
+  const username = storageData?.model?.username || '익명';
+  const nickName = storageData?.model?.nickName || '익명';
   const { id: title } = useParams();
   const reviewRef = useRef(null);
 
@@ -24,6 +25,7 @@ function ReviewEdit() {
       return;
     }
     const reviewData = {
+      username,
       nickName,
       title,
       reviewText,
