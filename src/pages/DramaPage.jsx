@@ -32,7 +32,7 @@ function Drama() {
   };
 
   const handleDelete = async (review) => {
-    if (userId === review.nickName) {
+    if (userId === review.username) {
       await deleteData(review.id);
       alert('삭제되었습니다.');
     } else {
