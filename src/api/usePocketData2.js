@@ -17,7 +17,7 @@ export function usePocketData(collection) {
     return pb.collection(collection).create(data);
   }
   function updateData(id, data) {
-    return pb.collection(collection).create(id, data);
+    return pb.collection(collection).updateData(id, data);
   }
 
   function deleteData(id) {

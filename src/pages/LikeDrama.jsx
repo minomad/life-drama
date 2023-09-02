@@ -4,10 +4,8 @@ import { useQuery } from '@tanstack/react-query';
 function LikeDrama() {
   const { getListData } = usePocketData('users');
 
-  //유저 아이디랑 비교해서 일치하는 유저의 데이터를 가져오자
-  //식별하기 좋게 타이틀을 이용하기
-
-  const { data } = useQuery(['users'], () => getListData({ "expand": 'like'}));
+  const { data } = useQuery(['users'], () => getListData({ "expand": 'reviews'}));
+  
   console.log(data);
   return (
     <div className="flex flex-col items-center">

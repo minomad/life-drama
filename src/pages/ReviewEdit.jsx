@@ -8,6 +8,7 @@ import Form from '@/components/Form';
 
 function ReviewEdit() {
   const { createData } = usePocketData('review');
+  const { updateData } = usePocketData('users');
   const { id: title } = useParams();
   const reviewRef = useRef(null);
 
@@ -24,10 +25,16 @@ function ReviewEdit() {
       title,
       reviewText,
     };
-
     try {
       if (confirm('리뷰를 등록하시겠습니까?')) {
-        await createData(reviewData);
+        // await createData(reviewData);
+        //작성된 리뷰의 ID를 유저 ID의 relation(reviews)에 추가/삭제 성공
+        const createdReview = await createData(reviewData);
+        const reviewId = createdReview.id;
+        await updateData('a7bi9ltqcza8whf', {
+          'reviews+': reviewId,
+        });
+
         window.history.back();
       }
     } catch (error) {
