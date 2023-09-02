@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { usePocketData } from '@/api/usePocketData';
 import TextArea from '@/components/TextArea';
 import Button from '@/components/Button';
@@ -64,7 +64,6 @@ function WritePage() {
     const imgUrl = URL.createObjectURL(imgFile);
     uploadImgRef.current.setAttribute('src', imgUrl);
   };
-
   return (
     <section>
       <Helmet>
@@ -72,7 +71,12 @@ function WritePage() {
       </Helmet>
 
       {!storageData && (
-        <div className="flex justify-center pt-40 text-xl font-semibold">로그인을 해주세요</div>
+        <Link
+          to="/signin"
+          className="flex justify-center py-48 text-xl font-semibold hover:text-hoverColor"
+        >
+          로그인이 필요합니다.
+        </Link>
       )}
 
       {storageData && (

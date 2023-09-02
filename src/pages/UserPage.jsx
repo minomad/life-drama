@@ -31,7 +31,14 @@ function UserPage() {
         <title>마이페이지</title>
       </Helmet>
 
-      {!storageData && <div className="pt-40 text-xl font-semibold">로그인이 필요합니다</div>}
+      {!storageData && (
+        <Link
+          to="/signin"
+          className="flex justify-center py-48 text-xl font-semibold hover:text-hoverColor"
+        >
+          로그인이 필요합니다.
+        </Link>
+      )}
 
       {storageData && (
         <>
