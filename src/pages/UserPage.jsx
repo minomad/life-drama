@@ -46,8 +46,16 @@ function UserPage() {
           </ul>
 
           <div className="flex gap-14 pt-5">
-            <Button onClick={handleLogout}>로그아웃</Button>
-            <Button onClick={handleDelete} hoverColor="hover:bg-rose-500">
+            <Button
+              className="h-12 w-auto rounded-lg bg-secondary p-3 font-semibold hover:bg-hoverColor"
+              onClick={handleLogout}
+            >
+              로그아웃
+            </Button>
+            <Button
+              className="h-12 w-auto rounded-lg bg-secondary p-3 font-semibold hover:bg-rose-500"
+              onClick={handleDelete}
+            >
               회원탈퇴
             </Button>
           </div>

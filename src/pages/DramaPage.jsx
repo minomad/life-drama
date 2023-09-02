@@ -6,24 +6,39 @@ import { useQuery } from '@tanstack/react-query';
 import Spinner from '@/components/Spinner';
 import Button from '@/components/Button';
 import Review from '@/components/Review';
+import useStorage from '@/hook/useStorage';
 
 function Drama() {
   const { id } = useParams();
   const { getIdData: getDramaId } = usePocketData('drama');
-  const { getListData: getReviewList } = usePocketData('review');
-
+  const { getListData: getReviewList, deleteData } = usePocketData('review');
+  const { storageData } = useStorage('pocketbase_auth');
   const {
     isLoading: isDramaLoading,
     isError: isDramaError,
     data: dramaData,
   } = useQuery(['drama', id], () => getDramaId(id));
 
-  const { isLoading: isReviewLoading, isError: isReviewError, data: reviewList } = useQuery(['review'], getReviewList);
+  const userId = storageData?.model?.username;
+
+  const {
+    isLoading: isReviewLoading,
+    isError: isReviewError,
+    data: reviewList,
+  } = useQuery(['review'], getReviewList);
 
   const handleBack = () => {
     window.history.back();
   };
 
+  const handleDelete = async (review) => {
+    if (userId === review.nickName) {
+      await deleteData(review.id);
+      alert('삭제되었습니다.');
+    } else {
+      alert('권한이 없습니다.');
+    }
+  };
 
   if (isDramaLoading || isReviewLoading) return <Spinner />;
 
@@ -38,22 +53,28 @@ function Drama() {
       </Helmet>
       <h2 className="sr-only">드라마 페이지</h2>
       <div className="sticky top-0 z-10 flex w-full justify-between bg-primary">
-        <Button onClick={handleBack} hoverColor={'bg-transparent'}>
+        <Button onClick={handleBack} className={'p-2'}>
           <img src="/back.svg" alt="뒤로가기" />
         </Button>
       </div>
       <figure>
         <img src={getPbImageURL(dramaData, 'img')} alt={dramaData.title} className="h-80" />
-        <figcaption className="pt-4 text-center text-lg font-semibold">{dramaData.title}</figcaption>
+        <figcaption className="pt-4 text-center text-lg font-semibold">
+          {dramaData.title}
+        </figcaption>
       </figure>
       <div className="max-w-xl">
         <p className="line-clamp-3 text-ellipsis">{dramaData.desc}</p>
       </div>
       <div className="flex gap-3">
-        <Button>좋아요</Button>
-        <Button hoverColor="hover:bg-rose-500">싫어요</Button>
+        <Button className="h-12 w-auto rounded-lg bg-secondary p-3 font-semibold hover:bg-hoverColor">
+          좋아요
+        </Button>
+        <Button className="h-12 w-auto rounded-lg bg-secondary p-3 font-semibold hover:bg-rose-500">
+          싫어요
+        </Button>
       </div>
-      <Review title={dramaData.title} reviewData={reviews} />
+      <Review title={dramaData.title} reviewData={reviews} handleDelete={handleDelete} />
     </section>
   );
 }

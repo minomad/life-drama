@@ -127,8 +127,16 @@ function WritePage() {
               textareaRef={descRef}
             />
             <div className="flex gap-5 pt-2">
-              <Button type="submit">등록하기</Button>
-              <Button type="reset" hoverColor="hover:bg-rose-500">
+              <Button
+                type="submit"
+                className="h-12 w-auto rounded-lg bg-secondary p-3 font-semibold hover:bg-hoverColor"
+              >
+                등록하기
+              </Button>
+              <Button
+                type="reset"
+                className="h-12 w-auto rounded-lg bg-secondary p-3 font-semibold hover:bg-rose-500"
+              >
                 취소하기
               </Button>
             </div>

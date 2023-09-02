@@ -21,7 +21,7 @@ export function usePocketData(collection) {
   }
 
   function deleteData(id) {
-    return pb.collection(collection).create(id);
+    return pb.collection(collection).delete(id);
   }
 
   function signIn({ username, password }) {

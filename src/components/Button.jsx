@@ -1,12 +1,10 @@
 import { node, string, func } from 'prop-types';
 
-function Button({ children, hoverColor, type = 'button', onClick }) {
-  const hoverClass = hoverColor || 'hover:bg-hoverColor';
+function Button({ children, className, type = 'button', onClick }) {
 
-  const buttonStyle = `h-12 rounded-lg bg-secondary p-3 w-auto font-semibold ${hoverClass}`;
 
   return (
-    <button type={type} className={`${buttonStyle}`} onClick={onClick}>
+    <button type={type} className={className} onClick={onClick}>
       {children}
     </button>
   );
@@ -14,7 +12,7 @@ function Button({ children, hoverColor, type = 'button', onClick }) {
 
 Button.propTypes = {
   children: node,
-  hoverColor: string,
+  className: string,
   type: string,
   onClick: func,
 };

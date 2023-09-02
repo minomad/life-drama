@@ -31,6 +31,7 @@ function useStorage(key, defaultValue) {
     [remove, storageData, update]
   );
 }
+
 const {
   localStorage: storage,
   JSON: { stringify, parse },

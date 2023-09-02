@@ -14,7 +14,9 @@ function LikeDrama() {
         <ul>
           {data?.map((item, index) => (
             <li key={index}>
-              <h4>{item.expand.reviews[0].title}</h4>
+              {item?.expand?.reviews?.map((review, titleIndex) => (
+                <h4 key={titleIndex}>{review.title}</h4>
+              ))}
             </li>
           ))}
         </ul>
