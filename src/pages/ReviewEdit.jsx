@@ -8,7 +8,6 @@ import Form from '@/components/Form';
 import useStorage from '@/hook/useStorage';
 
 function ReviewEdit() {
-  // const { updateData } = usePocketData('users');
   const { createData } = usePocketData('review');
   const { storageData } = useStorage('pocketbase_auth');
   const username = storageData?.model?.username || '익명';
@@ -34,14 +33,6 @@ function ReviewEdit() {
     try {
       if (confirm('리뷰를 등록하시겠습니까?')) {
         await createData(reviewData);
-        //작성된 리뷰의 ID를 유저 ID의 relation(reviews)에 추가/삭제 성공
-        // if (storageData?.model?.id) {
-        //   const createdReview = await createData(reviewData);
-        //   const reviewId = createdReview.id;
-        //   await updateData(storageData?.model?.id, {
-        //     'reviews+': reviewId,
-        //   });
-        // }
         window.history.back();
       }
     } catch (error) {
@@ -52,6 +43,7 @@ function ReviewEdit() {
   const handleReviewCancel = () => {
     window.history.back();
   };
+
   return (
     <section>
       <Helmet>

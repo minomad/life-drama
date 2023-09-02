@@ -4,9 +4,18 @@ import { useQuery } from '@tanstack/react-query';
 function LikeDrama() {
   const { getListData } = usePocketData('users');
 
-  const { data } = useQuery(['users'], () => getListData({ "expand": 'reviews'}));
+  const { data } = useQuery(['users'], () => getListData({ expand: 'reviews' }));
 
-  console.log(data);
+  // 찜기능이나 장바구니만 expand로 구현
+  // const { updateData } = usePocketData('users');
+  // if (storageData?.model?.id) {
+  //   const createdReview = await createData(reviewData);
+  //   const reviewId = createdReview.id;
+  //   await updateData(storageData?.model?.id, {
+  //     'reviews+': reviewId,
+  //   });
+  // }
+
   return (
     <div className="flex flex-col items-center">
       <div>
